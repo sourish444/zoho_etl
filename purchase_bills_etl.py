@@ -292,37 +292,37 @@ def fetch_all_bills(api_domain, access_token, cursor, start_date, end_date, org_
                     line_items = full_bill.get("line_items") or []
                     insert_line_items(cursor, bill_id, line_items)
                     total_inserted += 1
-                    logging.info(f"✅ Inserted {bill_id} with {len(line_items)} line items")
+                    logging.info(f" Inserted {bill_id} with {len(line_items)} line items")
                 except Exception as e:
-                    logging.error(f"❌ Failed to insert bill {bill_id}: {e}")
+                    logging.error(f" Failed to insert bill {bill_id}: {e}")
             time.sleep(RATE_LIMIT_SLEEP)
 
         page_ctx = data.get("page_context") or {}
         has_more = page_ctx.get("has_more_page")
-        logging.info(f"📄 Processed page {params['page']} with {len(bills)} bills")
+        logging.info(f" Processed page {params['page']} with {len(bills)} bills")
         if has_more:
             params["page"] = (page_ctx.get("page") or params["page"]) + 1
         else:
             break
 
-    logging.info(f"🟩 Done. Inserted/updated {total_inserted} bills in total.")
+    logging.info(f" Done. Inserted/updated {total_inserted} bills in total.")
 
 # ------------- Main -------------
 def main():
-    logging.info("⏰ Starting Zoho Purchase Bills ETL (today only)...")
+    logging.info(" Starting Zoho Purchase Bills ETL (today only)...")
 
     if not all([SQL_SERVER, SQL_DATABASE, SQL_USERNAME, SQL_PASSWORD, ZOHO_REFRESH_TOKEN, ZOHO_CLIENT_ID, ZOHO_CLIENT_SECRET, ZOHO_REDIRECT_URI, ZOHO_ORG_ID]):
-        logging.error("❌ Missing required environment variables. Please check your .env.")
+        logging.error(" Missing required environment variables. Please check your .env.")
         sys.exit(2)
 
     access_token, api_domain = get_new_access_token()
     if not access_token or not api_domain:
-        logging.error("❌ Failed to refresh access token")
+        logging.error(" Failed to refresh access token")
         sys.exit(2)
 
     # date range: today → today (YYYY-MM-DD)
     today = today_yyyy_mm_dd()
-    logging.info(f"📅 Pulling all bills for {today}...")
+    logging.info(f"Pulling all bills for {today}...")
 
     conn = None
     try:
@@ -341,9 +341,9 @@ def main():
 
         cursor.close()
         conn.close()
-        logging.info("✅ ETL job for bills completed successfully.")
+        logging.info(" ETL job for bills completed successfully.")
     except Exception as e:
-        logging.exception(f"❌ Error during ETL: {e}")
+        logging.exception(f" Error during ETL: {e}")
         try:
             if conn:
                 conn.close()
