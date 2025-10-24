@@ -6,7 +6,7 @@ import time
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
-# 🔑 Load environment variables
+# Load environment variables
 load_dotenv()
 
 # -------------------------
@@ -283,11 +283,11 @@ def fetch_all_credit_notes(access_token, cursor, start_date, org_id):
 # -------------------------
 def main():
     logging.basicConfig(level=logging.INFO)
-    logging.info("⏰ Starting Zoho ETL function locally...")
+    logging.info("Starting Zoho ETL function locally...")
 
     token = get_new_access_token()
     if not token:
-        logging.error("❌ Failed to refresh access token")
+        logging.error("Failed to refresh access token")
         return
 
     try:
@@ -304,9 +304,9 @@ def main():
 
         cursor.close()
         conn.close()
-        logging.info("✅ ETL job completed successfully.")
+        logging.info("ETL job completed successfully.")
     except Exception as e:
-        logging.exception(f"❌ Error during ETL: {e}")
+        logging.exception(f" Error during ETL: {e}")
 
 if __name__ == "__main__":
     main()
