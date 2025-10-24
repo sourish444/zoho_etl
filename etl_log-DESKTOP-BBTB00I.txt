@@ -1,0 +1,19 @@
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.15b50ea67d4f1d3e1ddca44bfdf99a5a.4cbe82c247b5c6ce6f0ce0a834bc3d24', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 180, in main
+    conn = connect_to_sql()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 29, in connect_to_sql
+    return pyodbc.connect(
+           ~~~~~~~~~~~~~~^
+        f"DRIVER={{ODBC Driver 17 for SQL Server}};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"SERVER={os.getenv('SQL_SERVER')};DATABASE={os.getenv('SQL_DATABASE')};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"UID={os.getenv('SQL_USERNAME')};PWD={os.getenv('SQL_PASSWORD')}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pyodbc.InterfaceError: ('IM002', '[IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified (0) (SQLDriverConnect)')

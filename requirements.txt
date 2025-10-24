@@ -1,0 +1,11 @@
+# ---- Core Packages ----
+requests==2.31.0          # For Zoho API calls
+python-dotenv==1.0.1      # For reading .env files (safe credential loading)
+pyodbc==5.1.0             # For connecting to Azure SQL or any ODBC DB
+pandas==2.2.3             # For data transformation and CSV/SQL integration
+openpyxl==3.1.5           # Optional: For reading/writing Excel (if used for reporting)
+SQLAlchemy==2.0.25        # Optional: Cleaner ORM for DB operations (if implemented later)
+
+# ---- Logging & Utilities ----
+certifi>=2024.2.2         # Ensures SSL certificates for HTTPS connections
+tenacity==8.2.3           # Optional: For retry logic when Zoho API rate-limits

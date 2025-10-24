@@ -1,0 +1,518 @@
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.5b766974d6c6790ee37fe9ac15767936.6011e15d1d17119300ce18b1114c5f4c', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.377fe66a360e6a239374d192a0939660.9ec8de3bf75c498998cad35c0fca9a4d', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002838091 with 2 line items
+INFO:root:Inserted Invoice 1007841000002838063 with 7 line items
+INFO:root:Processed page 1 with 2 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.9f1bb7e73b45719cbe2255055af8fb4e.7077453fb7e4a9625725bc4c890852a8', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002844440 with 11 line items
+INFO:root:Inserted Invoice 1007841000002844368 with 6 line items
+INFO:root:Inserted Invoice 1007841000002844344 with 5 line items
+INFO:root:Processed page 1 with 3 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x0000023267D674D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='accounts.zoho.in', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000023267D674D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 192, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 174, in main
+    token = get_new_access_token()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 17, in get_new_access_token
+    response = requests.post("https://accounts.zoho.in/oauth/v2/token", data=payload)
+  File "C:\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Python313\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='accounts.zoho.in', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000023267D674D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)"))
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.2104dfef95757fb405db0de8177ca03c.6505f91e85212b4e76f69515ce39773b', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.201.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.201.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 180, in main
+    conn = connect_to_sql()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 29, in connect_to_sql
+    return pyodbc.connect(
+           ~~~~~~~~~~~~~~^
+        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"SERVER={os.getenv('SQL_SERVER')};DATABASE={os.getenv('SQL_DATABASE')};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"UID={os.getenv('SQL_USERNAME')};PWD={os.getenv('SQL_PASSWORD')}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.201.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.201.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.2fba338c06a73e1e90d5faadfe948e33.49619f7d17efd020870a9aca232d56fe', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.b7e4d6f647aa7741376a417bcdc64926.4dc3014cc80a576bb22c094ccd4b5017', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002865389 with 2 line items
+ERROR:root:\u274c Error during ETL: ('23000', "[23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violation of UNIQUE KEY constraint 'UQ_invoice_line'. Cannot insert duplicate key in object 'dbo.InvoiceLineItems'. The duplicate key value is (1007841000002865389, Insulation Board 1000mm x 500mm x 19mmthk, 1805.00, <NULL>). (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 184, in main
+    fetch_all_invoices(token, cursor, start_date=today, org_id=os.getenv("ZOHO_ORGANIZATION_ID"))
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 158, in fetch_all_invoices
+    insert_line_items(cursor, invoice_id, line_items)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 109, in insert_line_items
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+        INSERT INTO InvoiceLineItems (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        str(item.get('taxes'))
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+pyodbc.IntegrityError: ('23000', "[23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violation of UNIQUE KEY constraint 'UQ_invoice_line'. Cannot insert duplicate key in object 'dbo.InvoiceLineItems'. The duplicate key value is (1007841000002865389, Insulation Board 1000mm x 500mm x 19mmthk, 1805.00, <NULL>). (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.b031e6cd8c40763ebf6efd5776755f2f.ed42d55186583fb17bbe3daed2f1b714', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002869366 with 8 line items
+INFO:root:Inserted Invoice 1007841000002869350 with 1 line items
+INFO:root:Inserted Invoice 1007841000002869334 with 1 line items
+INFO:root:Processed page 1 with 3 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.8603ab83afd0435c46e7a8e0d34b2baa.688aac66fd60facf890285f642d229f9', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('23000', "[23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violation of UNIQUE KEY constraint 'UQ_invoice_id'. Cannot insert duplicate key in object 'dbo.Invoices'. The duplicate key value is (1007841000002879049). (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 300, in main
+    fetch_all_invoices(token, cursor, start_date=today, org_id=os.getenv("ZOHO_ORGANIZATION_ID"))
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 234, in fetch_all_invoices
+    insert_invoice(cursor, full_invoice)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 117, in insert_invoice
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+        INSERT INTO Invoices (
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        inv.get('shipping_address', {}).get('state')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+pyodbc.IntegrityError: ('23000', "[23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Violation of UNIQUE KEY constraint 'UQ_invoice_id'. Cannot insert duplicate key in object 'dbo.Invoices'. The duplicate key value is (1007841000002879049). (2627) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]The statement has been terminated. (3621)")
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.444537de0d2f4bb79c7f9f06c4e70d4a.b8333eb9588f264cb7df9b697fc82589', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002896051 with 2 line items
+INFO:root:Inserted Invoice 1007841000002896035 with 2 line items
+INFO:root:Inserted Invoice 1007841000002896001 with 10 line items
+INFO:root:Processed page 1 with 3 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.478a4d80e8ded1af6d1963987dd4f8f8.19b33939396ddd4f80c5340cde7fd99d', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('08S01', '[08S01] [Microsoft][ODBC Driver 18 for SQL Server]TCP Provider: An established connection was aborted by the software in your host machine.\r\n (10053) (SQLExecDirectW); [08S01] [Microsoft][ODBC Driver 18 for SQL Server]Communication link failure (10053)')
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 296, in main
+    create_tables(cursor)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 66, in create_tables
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+    IF OBJECT_ID('InvoiceLineItems', 'U') IS NULL
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        item_tax NVARCHAR(MAX)
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )''')
+    ^^^^^
+pyodbc.OperationalError: ('08S01', '[08S01] [Microsoft][ODBC Driver 18 for SQL Server]TCP Provider: An established connection was aborted by the software in your host machine.\r\n (10053) (SQLExecDirectW); [08S01] [Microsoft][ODBC Driver 18 for SQL Server]Communication link failure (10053)')
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.2eab61bb44f1383315c6a43d1527c8f7.b1ea5dd9c9b78d0d4e86694684e775e7', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002908270 with 1 line items
+INFO:root:Inserted Invoice 1007841000002908252 with 2 line items
+INFO:root:Inserted Invoice 1007841000002908218 with 1 line items
+INFO:root:Processed page 1 with 3 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.5a78fb49db04b6084ea435b460c8931d.e757261759cb507400b0ebbecae916a5', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002905865 with 2 line items
+INFO:root:Inserted Invoice 1007841000002905849 with 2 line items
+INFO:root:Inserted Invoice 1007841000002905833 with 1 line items
+INFO:root:Processed page 1 with 3 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.639616821ca3efa09afd8671159562ee.f93eca64f25c96dedd6d9fed0ce6bc13', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.868cd0d191f980238dff08ba056a052d.b736e765b6627b165f68be0c2639b8d1', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002922874 with 2 line items
+INFO:root:Inserted Invoice 1007841000002922858 with 1 line items
+INFO:root:Inserted Invoice 1007841000002922842 with 1 line items
+INFO:root:Inserted Invoice 1007841000002922824 with 2 line items
+INFO:root:Processed page 1 with 4 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.3d9506c9e625f7552ff8fa0f69ce07aa.f513361b86402c5ed3019c084b90e990', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.217.23.235' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.217.23.235' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 294, in main
+    conn = connect_to_sql()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 39, in connect_to_sql
+    return pyodbc.connect(
+           ~~~~~~~~~~~~~~^
+        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"SERVER={os.getenv('SQL_SERVER')};DATABASE={os.getenv('SQL_DATABASE')};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"UID={os.getenv('SQL_USERNAME')};PWD={os.getenv('SQL_PASSWORD')}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.217.23.235' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.217.23.235' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.77496c7078c84eed3f51c13ca07ea88a.3f2ea21f5c6e556415b4a7153c72a67b', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.c93f704ce2e66a44d25feef0137ee3f7.61bfc9c42ff16ec6cda3bb46c427ad20', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002940988 with 5 line items
+INFO:root:Processed page 1 with 1 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.d401f786ce3da28ab8f2af2a8e7278ec.22e0f8d916a1cd03e396de3930997e7b', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.56416cc409e4fee75b2ccf0f7eebcd45.8e394e85d296f64e9b2e3868036db263', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '122.177.108.38' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '122.177.108.38' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 294, in main
+    conn = connect_to_sql()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 39, in connect_to_sql
+    return pyodbc.connect(
+           ~~~~~~~~~~~~~~^
+        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"SERVER={os.getenv('SQL_SERVER')};DATABASE={os.getenv('SQL_DATABASE')};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"UID={os.getenv('SQL_USERNAME')};PWD={os.getenv('SQL_PASSWORD')}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '122.177.108.38' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '122.177.108.38' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x0000027D11E7F4D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='accounts.zoho.in', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000027D11E7F4D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 312, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 288, in main
+    token = get_new_access_token()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 24, in get_new_access_token
+    response = requests.post("https://accounts.zoho.in/oauth/v2/token", data=payload)
+  File "C:\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Python313\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='accounts.zoho.in', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000027D11E7F4D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)"))
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.d8b33af1f1ec1727d357562c1596ede7.fd8d7b0675b2233fdeca7e452d87cd08', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.08dcdbfdf4422631f8886009585c6e59.23c3a6b9e2dff987af131daf92cad2a6', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000002988001 with 1 line items
+INFO:root:Processed page 1 with 1 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.5172a0f4516da321dea15e19092f3bca.ad7ecb502d489f1a28d7e4476055b8e4', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.99bfa6f06d481b539bc371b89c1a8928.3889a360955935d112727b1e04139d02', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.9bca1a596bc80ad0c2f22719fb127080.4383ed66c78fad333b7cb8ac87fd348a', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.e22ed5ddfe6715200c333d5db519ce6b.1d5d1587ceeb7cca5964811e7039e473', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.91b2b6e958b4e10be3e418c46d64f6b6.6d4eab93123ac96be114690022832723', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:Inserted Invoice 1007841000003034945 with 9 line items
+INFO:root:Inserted Invoice 1007841000003034927 with 3 line items
+INFO:root:Processed page 1 with 2 invoices
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.7511b53a41719e6a4e89c4975b647170.564407c43c24d32de726e28ac16169d9', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.27.241' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.27.241' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 294, in main
+    conn = connect_to_sql()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 39, in connect_to_sql
+    return pyodbc.connect(
+           ~~~~~~~~~~~~~~^
+        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"SERVER={os.getenv('SQL_SERVER')};DATABASE={os.getenv('SQL_DATABASE')};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"UID={os.getenv('SQL_USERNAME')};PWD={os.getenv('SQL_PASSWORD')}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.27.241' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.27.241' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.50b2bfecf473b6baedb5d03ad79f9314.cfbbc111e698e1bcfa44cc697b67104d', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+INFO:root:\u2705 ETL job completed successfully.
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socket.py", line 977, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000002AA7B10F4D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Python313\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='accounts.zoho.in', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002AA7B10F4D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 312, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 288, in main
+    token = get_new_access_token()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 24, in get_new_access_token
+    response = requests.post("https://accounts.zoho.in/oauth/v2/token", data=payload)
+  File "C:\Python313\Lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Python313\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='accounts.zoho.in', port=443): Max retries exceeded with url: /oauth/v2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002AA7B10F4D0>: Failed to resolve 'accounts.zoho.in' ([Errno 11001] getaddrinfo failed)"))
+INFO:root:\u23f0 Starting Zoho ETL function locally...
+INFO:root:Token Response: 200
+INFO:root:Token JSON: {'access_token': '1000.891ec83d6ed0e558a0eb1a7069d9efb1.89f22400686a793bdcb989d5fef15f11', 'scope': 'ZohoBooks.fullaccess.all', 'api_domain': 'https://www.zohoapis.in', 'token_type': 'Bearer', 'expires_in': 3600}
+ERROR:root:\u274c Error during ETL: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.195.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.195.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
+Traceback (most recent call last):
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 294, in main
+    conn = connect_to_sql()
+  File "C:\Users\souri\OneDrive\Working Folder\V-CFO\Thermoflyde Industries Private Limited\python script\final_script.py", line 39, in connect_to_sql
+    return pyodbc.connect(
+           ~~~~~~~~~~~~~~^
+        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"SERVER={os.getenv('SQL_SERVER')};DATABASE={os.getenv('SQL_DATABASE')};"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"UID={os.getenv('SQL_USERNAME')};PWD={os.getenv('SQL_PASSWORD')}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.195.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615) (SQLDriverConnect); [42000] [Microsoft][ODBC Driver 18 for SQL Server][SQL Server]Cannot open server 'akord' requested by the login. Client with IP address '117.198.195.105' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. (40615)")
